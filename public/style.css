@@ -1,5 +1,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: monospace !important
+}
+
+.fs-18 {
+  font-size: 18px !important;
+}
+
+.link{
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
 }
