@@ -16,6 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@polymer/marked-element": "^3.0.1",
     "napnux": "*"
   },
   "devDependencies": {
