@@ -1,0 +1,12 @@
+{% extends "blog/blog-layout.njk" %}
+{% block title %}
+  {{blog.title | title}}
+{% endblock %}
+{% block markdown %}
+  <zero-md >
+    <script type="text/markdown">
+      {{fileContent | safe}}
+    </script>
+  </zero-md>
+</div>
+{% endblock %}

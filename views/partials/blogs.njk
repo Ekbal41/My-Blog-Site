@@ -2,18 +2,18 @@
   <div
     class="col-md-4 col-lg-2 text-uppercase text-muted px-md-5 pt-2 mb-4 mb-md-0"
   >
-    Projects
+    Latest Posts
   </div>
   <div class="col-md-8 pt-1">
-
-    {% for project in projects %}
+    {% for blog in blogs %}
       <div class="mb-4">
-        <a class="text-dark fs-5 fw-semibold link" href="{{project.url}}">{{project.title}}</a>
+        <a class="text-dark fs-5 fw-semibold link" href="/blog/{{blog.slug}}">
+          {{blog.title | title}}
+        </a>
         <p class="fw-light fs-18 mt-2">
-          {{project.desc}}
+          {{blog.description}}
         </p>
       </div>
     {% endfor %}
-
   </div>
 </div>

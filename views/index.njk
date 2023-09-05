@@ -2,8 +2,16 @@
 {% block title %} Asif Ekbal | Front End Developer {% endblock %}
 {% block content %}
     {% include "partials/header.njk" %}
+
+    {% set about = about %}
     {% include "partials/about.njk" %}
+
+    {% set projects = projects %}
     {% include "partials/projects.njk" %}
-    {% include "partials/post.njk" %}
+
+    {% set blogs = firstFiveBlogs %}
+    {% include "partials/blogs.njk"%}
+
+    {% set skills = skills %}
     {% include "partials/skills.njk" %}
 {% endblock %}
