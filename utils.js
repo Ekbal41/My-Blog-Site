@@ -1,4 +1,9 @@
+
 const fs = require('fs');
+const path = require('path');
+
+const blogDir = path.join(process.cwd(), "data/blogs/");
+
 const extractMetadataFromMarkdown = (markdown) => {
     const charactersBetweenGroupedHyphens = /^---([\s\S]*?)---/;
     const metadataMatched = markdown.match(charactersBetweenGroupedHyphens);
@@ -18,7 +23,7 @@ const extractMetadataFromMarkdown = (markdown) => {
 const getFileMetaDatas = (files) => {
     const metadatas = [];
     files.map((file) => {
-        let fileContent = fs.readFileSync('data/blogs/' + file, 'utf8');
+        let fileContent = fs.readFileSync(blogDir + file, 'utf8');
         const m = extractMetadataFromMarkdown(fileContent)
         //add slug to metadata
         m.slug = file.split('.')[0];
