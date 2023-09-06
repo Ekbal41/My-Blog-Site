@@ -22,16 +22,30 @@ const extractMetadataFromMarkdown = (markdown) => {
 };
 const getFileMetaDatas = (files) => {
     const metadatas = [];
-    files.map((file) => {
-        let fileContent = fs.readFileSync(blogDir + file, 'utf8');
-        const m = extractMetadataFromMarkdown(fileContent)
-        //add slug to metadata
+
+    for (const file of files) {
+        let fileContent = fs.readFileSync(path.join(blogDir, file), 'utf8');
+        const m = extractMetadataFromMarkdown(fileContent);
+        // Add slug to metadata
         m.slug = file.split('.')[0];
         metadatas.push(m);
-    });
-    return metadatas;
+    }
 
-}
+    // Add next and previous blog to metadata
+    for (let index = 0; index < metadatas.length; index++) {
+        if (index > 0) {
+            metadatas[index].previousSlug = metadatas[index - 1].slug;
+            metadatas[index].previousTitle = metadatas[index - 1].title;
+        }
+        if (index < metadatas.length - 1) {
+            metadatas[index].nextSlug = metadatas[index + 1].slug;
+            metadatas[index].nextTitle = metadatas[index + 1].title;
+        }
+    }
+
+    return metadatas;
+};
+
 module.exports = {
     getFileMetaDatas,
     extractMetadataFromMarkdown

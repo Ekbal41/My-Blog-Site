@@ -50,7 +50,7 @@ module.exports = {
         },
         {
             title: 'Other',
-            skils: "Docker, Amazon Web Services (AWS), API design, Vercel, Netlify."
+            techs: "Docker, Amazon Web Services (AWS), API design, Vercel, Netlify."
 
         },
     ]

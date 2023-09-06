@@ -1,0 +1,18 @@
+{% extends "blog/blog-layout.njk" %}
+{% block title %}
+  All Posts
+{% endblock %}
+{% block content %}
+    {% for blog in blogs %}
+        <div class="mb-4">
+            <a class="text-dark fs-5 fw-semibold link" href="/blog/{{blog.slug}}">
+                {{blog.title | title}}
+            </a>
+            <p class="fw-light fs-18 mt-2">
+                {{blog.description}}
+            </p>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

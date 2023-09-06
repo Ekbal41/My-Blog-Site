@@ -12,6 +12,11 @@ module.exports = napnux()
     const firstFiveBlogs = blogs.slice(0, 5);
     res.render("index", { firstFiveBlogs, about, skills, projects });
   })
+  .get("/blogs", (req, res) => {
+    const files = fs.readdirSync(blogDir);
+    const blogs = getFileMetaDatas(files);
+    res.render("blog/blogs", { blogs });
+  })
   .get("/blog/:slug", (req, res) => {
     const { slug } = req.params;
     let rawfileContent = fs.readFileSync(blogDir + slug + ".md", 'utf8');
@@ -19,9 +24,11 @@ module.exports = napnux()
     const files = fs.readdirSync(blogDir);
     const blogs = getFileMetaDatas(files);
     const blog = blogs.find(blog => blog.slug === slug);
+    const tags = blog.tags.split(",").map(tag => tag.trim());
     res.render("blog/index", {
       blog,
-      fileContent
+      fileContent,
+      tags
     });
   });
 
