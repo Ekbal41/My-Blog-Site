@@ -18,7 +18,6 @@ module.exports = napnux()
       res.status(500).send("Internal Server Error");
     }
   })
-<<<<<<< HEAD
   .get("/blogs", (req, res) => {
     const files = fs.readdirSync(blogDir);
     const blogs = getFileMetaDatas(files);
@@ -37,7 +36,7 @@ module.exports = napnux()
       fileContent,
       tags
     });
-=======
+  })
   .get("/blog/:slug", async (req, res) => {
     const { slug } = req.params;
     try {
@@ -52,5 +51,4 @@ module.exports = napnux()
       console.error(error);
       res.status(500).send("Internal Server Error");
     }
->>>>>>> 7b8cf9a4a475095c008f2a7a96035e0cec52d49c
   });
