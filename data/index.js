@@ -9,22 +9,22 @@ module.exports = {
         {
             title: 'Napnux',
             desc: 'A low-overhead and speedy web framework for node js.',
-            url: 'https://napnuxa.com',
+            url: "#",
         },
         {
             title: 'Marvel',
             desc: 'Marvel is modern css framework based on flexbox.',
-            url: 'https://napnuxa.com',
+            url: "#",
         },
         {
             title: 'Non-Stack',
             desc: 'Non Stack -Starter for remix app.',
-            url: 'https://napnuxa.com',
+            url: "#",
         },
         {
             title: 'FiverX',
             desc: 'FiverX is a simple boilerplate for creating GoLang applications.',
-            url: 'https://napnuxa.com',
+            url: "#",
         },
     ],
     skills: [

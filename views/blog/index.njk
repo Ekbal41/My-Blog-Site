@@ -1,43 +1,48 @@
-{% extends "blog/blog-layout.njk" %}
-{% block title %}
-  {{blog.title | title}}
-{% endblock %}
-{% block content %}
-  <div class="mb-3 d-flex justify-content-end gap-2">
-    {% for tag in tags %}
-      <span class="badge bg-light fw-normal text-dark card text-capitalize">
-        {{tag}}
-      </span>
-    {% endfor %}
-
-  </div>
-  <zero-md >
-    <script type="text/markdown">
-      {{fileContent | safe}}
-    </script>
-  </zero-md>
-  <div class="d-flex justify-content-between align-items-center mt-5 gap-4">
-
-    {% if blog.previousTitle %}
-      <a class="card py-2 px-3 w-50 bg-light text-decoration-none text-dark" href="/blog/{{blog.previousSlug}}">
-        <p class="m-0">Previous Post</p>
-        <p class=" m-0 text-capitalize fw-semibold" >
-          {{blog.previousTitle}}
-        </p>
-      </a>
+{% extends "blog/blog-post-layout.njk" %} {% block title %}
+{{blogPostsMeta.title | title}} {% endblock %} {% block content %}
+<div class="mb-3 d-flex justify-content-end gap-2">
+  {% for tag in blogPostTags %}
+  <span class="badge bg-light fw-normal text-dark card text-capitalize">
+    {{tag}}
+  </span>
+  {% endfor %}
+</div>
+<zero-md>
+  <script type="text/markdown">
+    {{blogPostContent | safe}}
+  </script>
+</zero-md>
+<div
+  class="row  row-cols-md-2 justify-content-between align-items-center mt-5 gap-4 gap-md-0"
+>
+  <div>
+    {% if blogPostsMeta.previousTitle %}
+    <a
+      class="card py-2 px-3 bg-light text-decoration-none text-dark"
+      href="/blog/{{blogPostsMeta.previousSlug}}"
+    >
+      <p class="m-0">Previous Post</p>
+      <p class="m-0 text-capitalize fw-semibold">
+        {{blogPostsMeta.previousTitle}}
+      </p>
+    </a>
     {% else %}
-      <div></div>
-    {% endif %}
-
-    {% if blog.nextTitle %}
-      <a class="card w-50 text-end  bg-light py-2 px-3 text-decoration-none text-dark" href="/blog/{{blog.nextSlug}}">
-        <p class="m-0">Next Post</p>
-        <p class=" text-capitalize fw-semibold m-0" >
-          {{blog.nextTitle}}
-        </p>
-      </a>
-    {% else %}
-      <div></div>
+    <div></div>
     {% endif %}
   </div>
+
+  <div>
+    {% if blogPostsMeta.nextTitle %}
+    <a
+      class="card text-end bg-light py-2 px-3 text-decoration-none text-dark"
+      href="/blog/{{blogPostsMeta.nextSlug}}"
+    >
+      <p class="m-0">Next Post</p>
+      <p class="text-capitalize fw-semibold m-0">{{blogPostsMeta.nextTitle}}</p>
+    </a>
+    {% else %}
+    <div></div>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}

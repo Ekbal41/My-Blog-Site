@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const blogDir = path.join(process.cwd(), "data/blogs/");
+const blogDir = path.join(process.cwd(), "data/blog-posts/");
 
 const extractMetadataFromMarkdown = (markdown) => {
     const charactersBetweenGroupedHyphens = /^---([\s\S]*?)---/;
